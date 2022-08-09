@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 10px;
   font-family: Arial, Arial, Helvetica, sans-serif;
+  min-width: 400px;
 }
 input[type="text"] {
   border: 1px solid #5f9341;
