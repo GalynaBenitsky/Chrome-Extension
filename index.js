@@ -10,7 +10,7 @@ const tabBtn = document.getElementById("tab-btn");
 // let name = localStorage.getItem("myName");
 // console.log(name);
 //localStorage.clear();
-const tabs = [{ url: "https://www.linkedin.com/in/galynabenitskyi" }];
+// const tabs = [{ url: "https://www.linkedin.com/in/galynabenitskyi" }];
 
 if (leadsFromLocalStorage) {
   myLeads = leadsFromLocalStorage;
@@ -19,8 +19,9 @@ if (leadsFromLocalStorage) {
 tabBtn.addEventListener("click", function () {
   //console.log(tabs[0].url);
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    let activeTab = tabs[0];
-    let ActiveTabId = activeTab.id;
+    myLeads.push(tabs[0].url);
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    render(myLeads);
   });
 
   myLeads.push(tabs[0].url);
